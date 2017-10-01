@@ -1,16 +1,16 @@
 ﻿-- Dayna Eidle --
 -- Database Management --
 -- Lab 4 --
--- Due: September 25, 2017 --
+-- Due: October 2, 2017 --
 
--- #1 -- good
+-- #1 -- 
 select city
 from Agents
 where aid in (select aid
 		from Orders
 		where cid = 'c006');
 
--- #2 -- good
+-- #2 -- 
 select distinct pid
 from Orders
 where aid in (select aid
@@ -21,7 +21,7 @@ where aid in (select aid
 		)
 order by pid DESC;
 
--- #3 -- good
+-- #3 -- 
 select cid, name
 from Customers
 where cid not in (select cid
@@ -38,7 +38,7 @@ and cid in (select cid
 	    from Orders
 	    where pid = 'p07');
 
--- #5 -- good
+-- #5 -- 
 select pid
 from Orders
 where cid not in (select cid
@@ -46,7 +46,7 @@ where cid not in (select cid
 		   where aid = 'a02' or aid ='a03')
 order by pid DESC;
 
--- #6 -- good
+-- #6 -- 
 select name, discountPct, city
 from Customers
 where cid in (select cid
@@ -56,7 +56,7 @@ where cid in (select cid
 				where city = 'Tokyo' or city = 'New York')
 		);
 
--- #7 -- good
+-- #7 -- 
 select *
 from Customers
 where discountPct in (select discountPct
